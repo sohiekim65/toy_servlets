@@ -25,22 +25,24 @@ public class PollDetailServelts extends HttpServlet {
 
         // biz with DB and Class
         PollDetailDB pollWithDB = new PollDetailDB();
+
         // function 불러오기, 밖에서 선언
         HashMap<String, Object> question = null;
         ArrayList<HashMap> answer_list = null;
+        
         // HashMap<String, Object> answer = null;
         try {
             // function 재선언
             question = pollWithDB.getQuestion(questions_Uid);
             answer_list = pollWithDB.getAnswer(questions_Uid);
+
             // question 터미널 출력 확인용
-            System.out.println(question.get("ORDERS") + ". " + question.get("QUESTIONS"));
+            // System.out.println(question.get("ORDERS") + ". " + question.get("QUESTIONS"));
+            // answer 터미널 출력 확인용
             // for(int i = 0; i < answer_list.size(); i++){
             //     answer = answer_list.get(i);
-            //     // answer 터미널 출력 확인용
             //     System.out.println("("+answer.get("ORDERS")+") " + answer.get("EXAMPLE") );
             // }
-            
             
         } catch (SQLException e) {
             e.printStackTrace();

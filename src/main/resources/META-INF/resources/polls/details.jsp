@@ -21,6 +21,7 @@
   ArrayList<HashMap> answer_list = (ArrayList<HashMap>)request.getAttribute("answer_list"); 
   %>
     <div class="container mt-3">
+    <%-- prev, next 버튼 --%>
       <div class="mb-3">
       <% if((int)question.get("ORDERS") == 1){ %>
           <a href="" class="btn btn-primary" onclick="alert('첫번째 페이지입니다.')"
@@ -45,14 +46,18 @@
           > 
           <% } %>
       </div>
+      
+      <%-- questions --%>
       <div class="mb-1">
         <%= question.get("ORDERS") %>. <%= question.get("QUESTIONS") %>
       </div>
+
+      <%-- answers --%>
       <div>
         <%
           for(int i = 0; i < answer_list.size(); i++){
         %>
-        <div><input type="radio" name="radio_check" id="<%= answer_list.get(i).get("EXAMPLE_UID") %>"/>
+        <div><input type="radio" name="radio_check" id="<%= answer_list.get(i).get("EXAMPLE_UID") %>" value="<%= answer_list.get(i).get("EXAMPLE_UID") %>"/>
         <label for="<%= answer_list.get(i).get("EXAMPLE_UID") %>">
       (<%= answer_list.get(i).get("ORDERS") %>) <%= answer_list.get(i).get("EXAMPLE") %>
         </label>

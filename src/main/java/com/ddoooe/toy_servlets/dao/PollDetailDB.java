@@ -15,8 +15,9 @@ public class PollDetailDB {
                         " WHERE QUESTIONS_UID = '"+questionsUid+"'";
         
         ResultSet resultSet = statement.executeQuery(query);
+
         // 로우 하나를 받아내는 데이터를 결정해야 한다.
-        // 넘겨줄 수 있는 건 3가지 중 하나다(지금은 row하나라 hashMap). (bean, hashMap, arrayList)
+        // 넘겨줄 수 있는 건 3가지 중 하나다(지금은 row하나라 hashMap)
         HashMap<String, Object> result = null;
         while(resultSet.next()){
             result = new HashMap<>();
@@ -36,8 +37,9 @@ public class PollDetailDB {
                        " WHERE QUESTIONS_UID = '"+questionsUid+"'";
         
         ResultSet resultSet = statement.executeQuery(query);
-        // 로우 하나를 받아내는 데이터를 결정해야 한다.
-        // 넘겨줄 수 있는 건 3가지 중 하나다(지금은 row하나라 hashMap). (bean, hashMap, arrayList)
+
+        // 넘겨줄 수 있는 건 3가지 중 하나(bean, hashMap, arrayList)
+        // 출력할 때 ArrayList 필요. 마지막으로 묶어주기
         ArrayList<HashMap> answer_list = new ArrayList<>();
         HashMap<String, Object> answer = null;
         while(resultSet.next()){
